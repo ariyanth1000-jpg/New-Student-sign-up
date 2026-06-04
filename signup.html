@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trending Academy Limited</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  background:linear-gradient(135deg,#020617,#0f172a,#111827);
+}
+
+.container{
+  width:100%;
+  max-width:700px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  border-radius:28px;
+  padding:35px 28px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.45);
+}
+
+.logo{
+  width:80px;
+  height:80px;
+  margin:auto;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  color:white;
+  font-size:30px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+h2{
+  text-align:center;
+  color:white;
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#9ca3af;
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.input-group{
+  margin-bottom:18px;
+}
+
+.input-group label{
+  display:block;
+  margin-bottom:8px;
+  color:#d1d5db;
+  font-size:14px;
+  font-weight:500;
+}
+
+input,
+select{
+  width:100%;
+  padding:14px 15px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.06);
+  color:white;
+  outline:none;
+  font-size:15px;
+  transition:0.3s;
+}
+
+input::placeholder{
+  color:#9ca3af;
+}
+
+select{
+  color:#d1d5db;
+}
+
+option{
+  background:#111827;
+  color:white;
+}
+
+input:focus,
+select:focus{
+  border-color:#3b82f6;
+  box-shadow:0 0 12px rgba(59,130,246,0.35);
+  background:rgba(255,255,255,0.08);
+}
+
+/* EMAIL BOX */
+
+.email-wrapper{
+  position:relative;
+}
+
+.email-wrapper input{
+  padding-right:135px;
+}
+
+/* RIGHT SIDE GMAIL */
+
+.gmail-box{
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  height:40px;
+  padding:0 14px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  color:#9ca3af;
+  font-size:13px;
+  pointer-events:none;
+}
+
+/* ERROR */
+
+.error{
+  border:2px solid #ef4444 !important;
+}
+
+.error-text{
+  color:#ef4444;
+  font-size:13px;
+  margin-top:6px;
+  display:none;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:14px;
+  margin-top:18px;
+  background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  opacity:0.95;
+}
+
+.footer{
+  margin-top:18px;
+  text-align:center;
+  color:#9ca3af;
+  font-size:13px;
+}
+
+@media(max-width:650px){
+
+  .row{
+    grid-template-columns:1fr;
+  }
+
+  .container{
+    padding:28px 20px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+TA
+</div>
+
+<h2>Trending Academy</h2>
+
+<p class="subtitle">
+Create your student account
+</p>
+
+<div class="input-group">
+<label>Full Name</label>
+<input id="fullname" placeholder="Enter your full name">
+</div>
+
+<div class="row">
+
+  <div class="input-group">
+    <label>Language</label>
+    <select id="language">
+      <option value="">Select Language</option>
+      <option>Bangla</option>
+      <option>English</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label>Gender</label>
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="input-group">
+    <label>Country</label>
+    <select id="country">
+      <option value="">Select Country</option>
+      <option value="Bangladesh">Bangladesh</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label>Date Of Birth</label>
+    <input id="dob" type="date">
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="input-group">
+    <label>Phone Number</label>
+    <input id="phone" placeholder="Enter phone number">
+  </div>
+
+  <div class="input-group">
+    <label>WhatsApp Number</label>
+    <input id="whatsapp" placeholder="Enter WhatsApp number">
+  </div>
+
+</div>
+
+<!-- EMAIL -->
+
+<div class="input-group">
+
+<label>Email Address</label>
+
+<div class="email-wrapper">
+
+  <input
+    id="email"
+    placeholder="Enter username"
+    autocomplete="off"
+    oninput="validateEmail()"
+  >
+
+  <div class="gmail-box">
+    @gmail.com
+  </div>
+
+</div>
+
+<div id="emailError" class="error-text">
+Only letters & numbers allowed
+</div>
+
+</div>
+
+<div class="row">
+
+  <div class="input-group">
+    <label>Password</label>
+    <input id="password" type="password" placeholder="Create password">
+  </div>
+
+  <div class="input-group">
+    <label>Invite Code</label>
+    <input id="invite" placeholder="Enter invite code">
+  </div>
+
+</div>
+
+<button onclick="submit()">
+Create Account
+</button>
+
+<div class="footer">
+Trending Academy Limited © 2026
+</div>
+
+</div>
+
+<script>
+
+const API =
+"https://script.google.com/macros/s/AKfycbwg-dOYyvFtXdpcjbGR5hacA0vahfkUvsHqnw0DpivJq3wFT5WvGPm0S2mue0hDcBDAZA/exec";
+
+/* EMAIL VALIDATION */
+
+function validateEmail(){
+
+  let email=document.getElementById("email");
+  let error=document.getElementById("emailError");
+
+  /* ONLY LETTERS + NUMBERS */
+
+  let value=email.value;
+
+  let clean=value.replace(/[^a-zA-Z0-9]/g,'');
+
+  if(value !== clean){
+
+    email.value=clean;
+
+    email.classList.add("error");
+    error.style.display="block";
+
+  }else{
+
+    email.classList.remove("error");
+    error.style.display="none";
+
+  }
+
+}
+
+/* SUBMIT */
+
+function submit(){
+
+  let ids=[
+    "fullname",
+    "language",
+    "gender",
+    "country",
+    "dob",
+    "phone",
+    "whatsapp",
+    "email",
+    "password",
+    "invite"
+  ];
+
+  let data={};
+
+  for(let id of ids){
+
+    let el=document.getElementById(id);
+
+    if(!el.value){
+
+      el.classList.add("error");
+      return;
+
+    }else{
+
+      el.classList.remove("error");
+
+    }
+
+    data[id]=el.value;
+  }
+
+  /* FINAL EMAIL */
+
+  data.email=data.email+"@gmail.com";
+
+  fetch(API,{
+    method:"POST",
+    body:new URLSearchParams(data)
+  })
+
+  .then(r=>r.json())
+
+  .then(res=>{
+
+    if(res.status==="success"){
+
+      alert("Success! Student ID: "+res.studentId);
+
+    }else{
+
+      alert(res.message || "Error");
+
+    }
+
+  })
+
+  .catch(()=>{
+
+    alert("Server Error");
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
