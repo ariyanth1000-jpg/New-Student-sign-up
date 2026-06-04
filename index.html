@@ -7,7 +7,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -120,17 +119,14 @@ select:focus{
 }
 
 /* EMAIL BOX */
-
 .email-wrapper{
   position:relative;
 }
-
 .email-wrapper input{
   padding-right:135px;
 }
 
 /* RIGHT SIDE GMAIL */
-
 .gmail-box{
   position:absolute;
   right:8px;
@@ -150,7 +146,6 @@ select:focus{
 }
 
 /* ERROR */
-
 .error{
   border:2px solid #ef4444 !important;
 }
@@ -189,37 +184,65 @@ button:hover{
 }
 
 @media(max-width:650px){
-
   .row{
     grid-template-columns:1fr;
   }
-
   .container{
     padding:28px 20px;
   }
-
   h2{
     font-size:24px;
   }
+}
 
+/* FLOATING MESSAGE */
+.toast{
+  position:fixed;
+  top:20px;
+  right:20px;
+  min-width:280px;
+  max-width:400px;
+  padding:16px 20px;
+  border-radius:14px;
+  color:white;
+  font-size:14px;
+  font-weight:500;
+  z-index:9999;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-15px);
+  transition:.35s;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.toast.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.toast.success{
+  background:#22c55e;
+}
+
+.toast.error-msg{
+  background:#ef4444;
+}
+
+button:disabled{
+  opacity:.75;
+  cursor:not-allowed;
 }
 
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-<div class="logo">
-TA
-</div>
-
+<div class="logo">TA</div>
 <h2>Trending Academy</h2>
-
-<p class="subtitle">
-Create your student account
-</p>
+<p class="subtitle">Create your student account</p>
 
 <div class="input-group">
 <label>Full Name</label>
@@ -227,7 +250,6 @@ Create your student account
 </div>
 
 <div class="row">
-
   <div class="input-group">
     <label>Language</label>
     <select id="language">
@@ -245,11 +267,9 @@ Create your student account
       <option>Female</option>
     </select>
   </div>
-
 </div>
 
 <div class="row">
-
   <div class="input-group">
     <label>Country</label>
     <select id="country">
@@ -265,11 +285,9 @@ Create your student account
     <label>Date Of Birth</label>
     <input id="dob" type="date">
   </div>
-
 </div>
 
 <div class="row">
-
   <div class="input-group">
     <label>Phone Number</label>
     <input id="phone" placeholder="Enter phone number">
@@ -279,34 +297,21 @@ Create your student account
     <label>WhatsApp Number</label>
     <input id="whatsapp" placeholder="Enter WhatsApp number">
   </div>
-
 </div>
 
 <!-- EMAIL -->
-
 <div class="input-group">
-
 <label>Email Address</label>
-
 <div class="email-wrapper">
-
   <input
     id="email"
     placeholder="Enter username"
     autocomplete="off"
     oninput="validateEmail()"
   >
-
-  <div class="gmail-box">
-    @gmail.com
-  </div>
-
+  <div class="gmail-box">@gmail.com</div>
 </div>
-
-<div id="emailError" class="error-text">
-Only letters & numbers allowed
-</div>
-
+<div id="emailError" class="error-text">Only letters & numbers allowed</div>
 </div>
 
 <div class="row">
@@ -323,88 +328,82 @@ Only letters & numbers allowed
 
 </div>
 
-<button onclick="submit()">
-Create Account
+<button id="signupBtn" onclick="submitForm()">
+  Create Account
 </button>
 
 <div class="footer">
-Trending Academy Limited © 2026
+  Trending Academy Limited © 2026
 </div>
 
-</div>
+</div> <!-- container end -->
+
+<!-- FLOATING TOASTS -->
+<div id="successToast" class="toast success"></div>
+<div id="errorToast" class="toast error-msg"></div>
 
 <script>
 
-const API =
-"https://script.google.com/macros/s/AKfycbwg-dOYyvFtXdpcjbGR5hacA0vahfkUvsHqnw0DpivJq3wFT5WvGPm0S2mue0hDcBDAZA/exec";
+const API = "https://script.google.com/macros/s/AKfycbwg-dOYyvFtXdpcjbGR5hacA0vahfkUvsHqnw0DpivJq3wFT5WvGPm0S2mue0hDcBDAZA/exec";
 
 /* EMAIL VALIDATION */
-
 function validateEmail(){
-
   let email=document.getElementById("email");
   let error=document.getElementById("emailError");
-
-  /* ONLY LETTERS + NUMBERS */
-
   let value=email.value;
-
   let clean=value.replace(/[^a-zA-Z0-9]/g,'');
-
-  if(value !== clean){
-
+  if(value!==clean){
     email.value=clean;
-
     email.classList.add("error");
     error.style.display="block";
-
-  }else{
-
+  } else{
     email.classList.remove("error");
     error.style.display="none";
-
   }
-
 }
 
-/* SUBMIT */
+/* TOAST FUNCTIONS */
+function showSuccess(message){
+  const toast=document.getElementById("successToast");
+  toast.innerHTML=message;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),4000);
+}
 
-function submit(){
+function showError(message){
+  const toast=document.getElementById("errorToast");
+  toast.innerHTML=message;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),4000);
+}
 
-  let ids=[
-    "fullname",
-    "language",
-    "gender",
-    "country",
-    "dob",
-    "phone",
-    "whatsapp",
-    "email",
-    "password",
-    "invite"
-  ];
+/* FORM SUBMIT */
+function submitForm(){
+  const btn=document.getElementById("signupBtn");
+  btn.disabled=true;
+  btn.innerHTML="Creating...";
 
+  let ids=["fullname","language","gender","country","dob","phone","whatsapp","email","password","invite"];
   let data={};
+  let hasError=false;
 
-  for(let id of ids){
-
+  ids.forEach(id=>{
     let el=document.getElementById(id);
-
-    if(!el.value){
-
+    if(!el.value.trim()){
       el.classList.add("error");
-      return;
-
-    }else{
-
+      hasError=true;
+    } else{
       el.classList.remove("error");
-
+      data[id]=el.value.trim();
     }
+  });
 
-    data[id]=el.value;
+  if(hasError){
+    btn.disabled=false;
+    btn.innerHTML="Create Account";
+    showError("Please fill all required fields.");
+    return;
   }
-
-  /* FINAL EMAIL */
 
   data.email=data.email+"@gmail.com";
 
@@ -412,29 +411,22 @@ function submit(){
     method:"POST",
     body:new URLSearchParams(data)
   })
-
   .then(r=>r.json())
-
   .then(res=>{
-
+    btn.disabled=false;
+    btn.innerHTML="Create Account";
     if(res.status==="success"){
-
-      alert("Success! Student ID: "+res.studentId);
-
-    }else{
-
-      alert(res.message || "Error");
-
+      showSuccess("Account Created Successfully<br>Student ID: <b>"+res.studentId+"</b>");
+      ids.forEach(id=>document.getElementById(id).value="");
+    } else{
+      showError(res.message || "Account creation failed.");
     }
-
   })
-
   .catch(()=>{
-
-    alert("Server Error");
-
+    btn.disabled=false;
+    btn.innerHTML="Create Account";
+    showError("Server Error. Please try again.");
   });
-
 }
 
 </script>
