@@ -5,67 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trending Academy Limited</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
   min-height:100vh;
+  padding:18px;
+  background:
+    radial-gradient(circle at top left,rgba(59,130,246,.35),transparent 35%),
+    radial-gradient(circle at bottom right,rgba(139,92,246,.35),transparent 35%),
+    linear-gradient(135deg,#020617,#0f172a,#111827);
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:20px;
-  background:linear-gradient(135deg,#020617,#0f172a,#111827);
+  color:white;
 }
 
 .container{
   width:100%;
-  max-width:700px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter:blur(18px);
-  border-radius:28px;
-  padding:35px 28px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.45);
+  max-width:760px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(20px);
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 18px 55px rgba(0,0,0,.55);
 }
 
+.banner{
+  width:100%;
+  height:150px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.bannerText{
+  font-size:24px;
+  font-weight:800;
+}
+
+.formBox{padding:28px;}
+
 .logo{
-  width:80px;
-  height:80px;
-  margin:auto;
+  width:86px;
+  height:86px;
+  margin:-72px auto 15px;
   border-radius:50%;
+  background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  border:5px solid #0f172a;
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#3b82f6,#8b5cf6);
-  color:white;
-  font-size:30px;
-  font-weight:700;
-  margin-bottom:18px;
+  font-size:32px;
+  font-weight:800;
+  box-shadow:0 0 25px rgba(59,130,246,.65);
 }
 
-h2{
-  text-align:center;
-  color:white;
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-.subtitle{
-  text-align:center;
-  color:#9ca3af;
-  font-size:14px;
-  margin-bottom:28px;
-}
+h2{text-align:center;font-size:30px;margin-bottom:6px;}
+.subtitle{text-align:center;color:#cbd5e1;font-size:14px;margin-bottom:26px;}
 
 .row{
   display:grid;
@@ -73,60 +81,39 @@ h2{
   gap:14px;
 }
 
-.input-group{
-  margin-bottom:18px;
-}
+.input-group{margin-bottom:17px;}
 
-.input-group label{
+label{
   display:block;
-  margin-bottom:8px;
-  color:#d1d5db;
+  margin-bottom:7px;
+  color:#e5e7eb;
   font-size:14px;
-  font-weight:500;
+  font-weight:600;
 }
 
-input,
-select{
+input,select{
   width:100%;
   padding:14px 15px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,0.08);
-  background:rgba(255,255,255,0.06);
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,.13);
+  background:rgba(255,255,255,.08);
   color:white;
   outline:none;
   font-size:15px;
-  transition:0.3s;
 }
 
-input::placeholder{
-  color:#9ca3af;
+input::placeholder{color:#94a3b8;}
+select{color:#d1d5db;}
+option{background:#111827;color:white;}
+
+input:focus,select:focus{
+  border-color:#60a5fa;
+  box-shadow:0 0 15px rgba(96,165,250,.35);
 }
 
-select{
-  color:#d1d5db;
-}
+.email-wrapper{position:relative;}
+.email-wrapper input{padding-right:135px;}
 
-option{
-  background:#111827;
-  color:white;
-}
-
-input:focus,
-select:focus{
-  border-color:#3b82f6;
-  box-shadow:0 0 12px rgba(59,130,246,0.35);
-  background:rgba(255,255,255,0.08);
-}
-
-/* EMAIL BOX */
-.email-wrapper{
-  position:relative;
-}
-.email-wrapper input{
-  padding-right:135px;
-}
-
-/* RIGHT SIDE GMAIL */
 .gmail-box{
   position:absolute;
   right:8px;
@@ -134,24 +121,19 @@ select:focus{
   transform:translateY(-50%);
   height:40px;
   padding:0 14px;
-  border-radius:10px;
+  border-radius:11px;
   display:flex;
   align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.12);
-  color:#9ca3af;
+  background:rgba(255,255,255,.10);
+  color:#cbd5e1;
   font-size:13px;
   pointer-events:none;
 }
 
-/* ERROR */
-.error{
-  border:2px solid #ef4444 !important;
-}
+.error{border:2px solid #ef4444 !important;}
 
 .error-text{
-  color:#ef4444;
+  color:#f87171;
   font-size:13px;
   margin-top:6px;
   display:none;
@@ -159,60 +141,62 @@ select:focus{
 
 button{
   width:100%;
-  padding:15px;
+  padding:16px;
   border:none;
-  border-radius:14px;
-  margin-top:18px;
-  background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  border-radius:16px;
+  margin-top:16px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed,#db2777);
   color:white;
-  font-size:16px;
-  font-weight:600;
+  font-size:17px;
+  font-weight:800;
   cursor:pointer;
-  transition:0.3s;
+  box-shadow:0 10px 30px rgba(59,130,246,.35);
 }
 
-button:hover{
-  transform:translateY(-2px);
-  opacity:0.95;
+button:disabled{opacity:.75;cursor:not-allowed;}
+
+.bottomBanner{
+  margin-top:22px;
+  width:100%;
+  min-height:90px;
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.bottomBanner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .footer{
   margin-top:18px;
   text-align:center;
-  color:#9ca3af;
+  color:#94a3b8;
   font-size:13px;
 }
 
-@media(max-width:650px){
-  .row{
-    grid-template-columns:1fr;
-  }
-  .container{
-    padding:28px 20px;
-  }
-  h2{
-    font-size:24px;
-  }
-}
-
-/* FLOATING MESSAGE */
 .toast{
   position:fixed;
   top:20px;
   right:20px;
   min-width:280px;
-  max-width:400px;
+  max-width:420px;
   padding:16px 20px;
-  border-radius:14px;
+  border-radius:15px;
   color:white;
   font-size:14px;
-  font-weight:500;
+  font-weight:600;
   z-index:9999;
   opacity:0;
   visibility:hidden;
   transform:translateY(-15px);
   transition:.35s;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .toast.show{
@@ -221,214 +205,253 @@ button:hover{
   transform:translateY(0);
 }
 
-.toast.success{
-  background:#22c55e;
-}
+.toast.success{background:#22c55e;}
+.toast.error-msg{background:#ef4444;}
 
-.toast.error-msg{
-  background:#ef4444;
+@media(max-width:650px){
+  body{padding:12px;}
+  .row{grid-template-columns:1fr;}
+  .formBox{padding:24px 18px;}
+  .banner{height:120px;}
+  h2{font-size:24px;}
+  .toast{left:15px;right:15px;min-width:auto;max-width:none;}
 }
-
-button:disabled{
-  opacity:.75;
-  cursor:not-allowed;
-}
-
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<div class="logo">TA</div>
-<h2>Trending Academy</h2>
-<p class="subtitle">Create your student account</p>
-
-<div class="input-group">
-<label>Full Name</label>
-<input id="fullname" placeholder="Enter your full name">
-</div>
-
-<div class="row">
-  <div class="input-group">
-    <label>Language</label>
-    <select id="language">
-      <option value="">Select Language</option>
-      <option>Bangla</option>
-      <option>English</option>
-    </select>
+  <div class="banner">
+    <img src="TOP_BANNER_URL_HERE" onerror="this.style.display='none';document.getElementById('topText').style.display='block';">
+    <div id="topText" class="bannerText" style="display:none;">Trending Academy Limited</div>
   </div>
 
-  <div class="input-group">
-    <label>Gender</label>
-    <select id="gender">
-      <option value="">Select Gender</option>
-      <option>Male</option>
-      <option>Female</option>
-    </select>
+  <div class="formBox">
+
+    <div class="logo">TA</div>
+    <h2>Create Account</h2>
+    <p class="subtitle">Join Trending Academy Limited</p>
+
+    <div class="input-group">
+      <label>Full Name</label>
+      <input id="fullname" placeholder="Enter your full name">
+    </div>
+
+    <div class="row">
+      <div class="input-group">
+        <label>Language</label>
+        <select id="language">
+          <option value="">Select Language</option>
+          <option>Bangla</option>
+          <option>English</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Gender</label>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-group">
+        <label>Country</label>
+        <select id="country" onchange="setCountryCode()">
+          <option value="">Select Country</option>
+          <option value="Bangladesh" data-code="+880">Bangladesh +880</option>
+          <option value="India" data-code="+91">India +91</option>
+          <option value="USA" data-code="+1">USA +1</option>
+          <option value="UK" data-code="+44">UK +44</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Date Of Birth</label>
+        <input id="dob" type="date">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-group">
+        <label>Phone Number</label>
+        <input id="phone" placeholder="Select country first">
+      </div>
+
+      <div class="input-group">
+        <label>WhatsApp Number</label>
+        <input id="whatsapp" placeholder="Select country first">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Email Address</label>
+      <div class="email-wrapper">
+        <input id="email" placeholder="Enter username" autocomplete="off" oninput="validateEmail()">
+        <div class="gmail-box">@gmail.com</div>
+      </div>
+      <div id="emailError" class="error-text">Only letters and numbers allowed</div>
+    </div>
+
+    <div class="row">
+      <div class="input-group">
+        <label>Password</label>
+        <input id="password" type="text" placeholder="Create password">
+      </div>
+
+      <div class="input-group">
+        <label>Invite Code</label>
+        <input id="invite" placeholder="Enter invite code">
+      </div>
+    </div>
+
+    <button id="signupBtn" onclick="submitForm()">Create Account</button>
+
+    <div class="bottomBanner">
+      <img src="BOTTOM_BANNER_URL_HERE" onerror="this.style.display='none';this.parentElement.innerHTML='Trending Academy Limited';">
+    </div>
+
+    <div class="footer">Trending Academy Limited © 2026</div>
+
   </div>
 </div>
 
-<div class="row">
-  <div class="input-group">
-    <label>Country</label>
-    <select id="country">
-      <option value="">Select Country</option>
-      <option value="Bangladesh">Bangladesh</option>
-      <option value="India">India</option>
-      <option value="USA">USA</option>
-      <option value="UK">UK</option>
-    </select>
-  </div>
-
-  <div class="input-group">
-    <label>Date Of Birth</label>
-    <input id="dob" type="date">
-  </div>
-</div>
-
-<div class="row">
-  <div class="input-group">
-    <label>Phone Number</label>
-    <input id="phone" placeholder="Enter phone number">
-  </div>
-
-  <div class="input-group">
-    <label>WhatsApp Number</label>
-    <input id="whatsapp" placeholder="Enter WhatsApp number">
-  </div>
-</div>
-
-<!-- EMAIL -->
-<div class="input-group">
-<label>Email Address</label>
-<div class="email-wrapper">
-  <input
-    id="email"
-    placeholder="Enter username"
-    autocomplete="off"
-    oninput="validateEmail()"
-  >
-  <div class="gmail-box">@gmail.com</div>
-</div>
-<div id="emailError" class="error-text">Only letters & numbers allowed</div>
-</div>
-
-<div class="row">
-
-  <div class="input-group">
-    <label>Password</label>
-    <input id="password" type="text" placeholder="Create password">
-  </div>
-
-  <div class="input-group">
-    <label>Invite Code</label>
-    <input id="invite" placeholder="Enter invite code">
-  </div>
-
-</div>
-
-<button id="signupBtn" onclick="submitForm()">
-  Create Account
-</button>
-
-<div class="footer">
-  Trending Academy Limited © 2026
-</div>
-
-</div> <!-- container end -->
-
-<!-- FLOATING TOASTS -->
 <div id="successToast" class="toast success"></div>
 <div id="errorToast" class="toast error-msg"></div>
 
 <script>
+const API = "https://script.google.com/macros/s/AKfycbzBJpScRYLgV1YMTIExhdyiMQaUxcG0rjbjr5BW0fON3WKYv3Xp9LOEKUhqe8ecgQcO4Q/exec";
 
-const API = "https://script.google.com/macros/s/AKfycbwg-dOYyvFtXdpcjbGR5hacA0vahfkUvsHqnw0DpivJq3wFT5WvGPm0S2mue0hDcBDAZA/exec";
+function getCountryCode(){
+  const country = document.getElementById("country");
+  const selected = country.options[country.selectedIndex];
+  return selected.getAttribute("data-code") || "";
+}
 
-/* EMAIL VALIDATION */
+function removeOldCode(value){
+  return value.replace(/^\+\d+\s*/, "").trim();
+}
+
+function setCountryCode(){
+  const code = getCountryCode();
+  const phone = document.getElementById("phone");
+  const whatsapp = document.getElementById("whatsapp");
+
+  if(!code) return;
+
+  phone.value = code + " " + removeOldCode(phone.value);
+  whatsapp.value = code + " " + removeOldCode(whatsapp.value);
+}
+
+function keepCountryCode(inputId){
+  const code = getCountryCode();
+  const input = document.getElementById(inputId);
+
+  if(!code) return;
+
+  let number = removeOldCode(input.value);
+  input.value = code + " " + number;
+}
+
+document.getElementById("phone").addEventListener("input",()=>keepCountryCode("phone"));
+document.getElementById("whatsapp").addEventListener("input",()=>keepCountryCode("whatsapp"));
+
 function validateEmail(){
-  let email=document.getElementById("email");
-  let error=document.getElementById("emailError");
-  let value=email.value;
-  let clean=value.replace(/[^a-zA-Z0-9]/g,'');
-  if(value!==clean){
-    email.value=clean;
+  const email = document.getElementById("email");
+  const error = document.getElementById("emailError");
+  const clean = email.value.replace(/[^a-zA-Z0-9]/g,"");
+
+  if(email.value !== clean){
+    email.value = clean;
     email.classList.add("error");
-    error.style.display="block";
-  } else{
+    error.style.display = "block";
+  }else{
     email.classList.remove("error");
-    error.style.display="none";
+    error.style.display = "none";
   }
 }
 
-/* TOAST FUNCTIONS */
-function showSuccess(message){
-  const toast=document.getElementById("successToast");
-  toast.innerHTML=message;
+function showSuccess(msg){
+  const toast = document.getElementById("successToast");
+  toast.innerHTML = msg;
   toast.classList.add("show");
-  setTimeout(()=>toast.classList.remove("show"),4000);
+  setTimeout(()=>toast.classList.remove("show"),5000);
 }
 
-function showError(message){
-  const toast=document.getElementById("errorToast");
-  toast.innerHTML=message;
+function showError(msg){
+  const toast = document.getElementById("errorToast");
+  toast.innerHTML = msg;
   toast.classList.add("show");
-  setTimeout(()=>toast.classList.remove("show"),4000);
+  setTimeout(()=>toast.classList.remove("show"),6000);
 }
 
-/* FORM SUBMIT */
 function submitForm(){
-  const btn=document.getElementById("signupBtn");
-  btn.disabled=true;
-  btn.innerHTML="Creating...";
+  const btn = document.getElementById("signupBtn");
+  btn.disabled = true;
+  btn.innerHTML = "Creating...";
 
-  let ids=["fullname","language","gender","country","dob","phone","whatsapp","email","password","invite"];
-  let data={};
-  let hasError=false;
+  const ids = ["fullname","language","gender","country","dob","phone","whatsapp","email","password","invite"];
+  let data = {};
+  let hasError = false;
 
   ids.forEach(id=>{
-    let el=document.getElementById(id);
-    if(!el.value.trim()){
+    const el = document.getElementById(id);
+    const value = el.value.trim();
+
+    if(!value){
       el.classList.add("error");
-      hasError=true;
-    } else{
+      hasError = true;
+    }else{
       el.classList.remove("error");
-      data[id]=el.value.trim();
+      data[id] = value;
     }
   });
 
   if(hasError){
-    btn.disabled=false;
-    btn.innerHTML="Create Account";
+    btn.disabled = false;
+    btn.innerHTML = "Create Account";
     showError("Please fill all required fields.");
     return;
   }
 
-  data.email=data.email+"@gmail.com";
+  data.email = data.email.toLowerCase() + "@gmail.com";
+  data.action = "signup";
 
   fetch(API,{
     method:"POST",
     body:new URLSearchParams(data)
   })
-  .then(r=>r.json())
-  .then(res=>{
-    btn.disabled=false;
-    btn.innerHTML="Create Account";
-    if(res.status==="success"){
+  .then(response=>response.text())
+  .then(text=>{
+    btn.disabled = false;
+    btn.innerHTML = "Create Account";
+
+    let res;
+    try{
+      res = JSON.parse(text);
+    }catch(e){
+      showError("Invalid server response");
+      return;
+    }
+
+    if(res.status === "success"){
       showSuccess("Account Created Successfully<br>Student ID: <b>"+res.studentId+"</b>");
       ids.forEach(id=>document.getElementById(id).value="");
-    } else{
-      showError(res.message || "Account creation failed.");
+    }else{
+      showError(res.message || JSON.stringify(res));
     }
   })
-  .catch(()=>{
-    btn.disabled=false;
-    btn.innerHTML="Create Account";
-    showError("Server Error. Please try again.");
+  .catch(err=>{
+    btn.disabled = false;
+    btn.innerHTML = "Create Account";
+    showError("Server Error: " + err.message);
   });
 }
-
 </script>
 
 </body>
